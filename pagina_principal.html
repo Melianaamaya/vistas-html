@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Generando sonrisas</title>
+    <title>El emperador</title>
     <style>
         body {
             background-color: #DDC5A1; /* Color de fondo marrón claro */
@@ -160,54 +160,70 @@
                 <button id="btn-mesas">Mesas</button>
                 <button id="btn-pedidos">Pedidos</button>
                 <div class="perfil-container">
-                    <div class="perfil-btn">Perfil</div>
+                    <div id="btn-perfil" class="perfil-btn">Perfil</div>
                     <img class="perfil-img" src="imagenes/logo_de_usuario-removebg-preview (2).png" alt="Logo de Usuario">
                 </div>
             </div>
         </div>
     </header>
-    <!-- Botón de Volver Atrás -->
     <div class="navigation row">
         <a href="#" onclick="history.back();">
             <img src="imagenes/flecha.png" alt="Volver Atrás" style="width: 25px; height: auto;">
         </a>
     </div>
-    <!-- Título de Pagina principal -->
     <h2 class="row">Pagina principal</h2>
-    <!-- Título adicional alineado al centro -->
     <div class="centered-title">
         <h3>Menú</h3>
     </div>
-    <!-- Título más pequeño alineado al centro -->
     <div class="small-title">
         <h4>Menú disponible del día</h4>
     </div>
-    <!-- Botón con imagen -->
     <div class="button-container">
-        <button class="custom-button">
+        <button id="menuBtn" class="custom-button">
             <img src="imagenes\cubiertos-removebg-preview.png" alt="Botón con imagen">
         </button>
     </div>
-    <!-- Título alineado al centro -->
     <div class="centered-title">
         <h4>Mesas</h4>
     </div>
-    <!-- Título más pequeño alineado al centro -->
     <div class="small-title">
         <h4>Mesas disponibles del día</h4>
     </div>
-    <!-- Botón con imagen -->
     <div class="button-container">
-        <button class="custom-button">
+        <button id="mesasBtn" class="custom-button">
             <img src="imagenes\png-transparent-table-restaurant-computer-icons-buffet-cafe-table-furniture-food-text-thumbnail-removebg-preview.png" alt="Botón con imagen">
         </button>
     </div>
-    <!-- Botón "Realizar pedidos" -->
-<div class="centered-text">
-    <button class="black-button">Realizar pedidos →</button>
-</div>
+    <div class="centered-text">
+        <button id="realizarPedidosBtn" class="black-button">Realizar pedidos →</button>
+    </div>
+    <script>
+        // JavaScript para redirigir a la vista del menú disponible del día
+        document.getElementById('menuBtn').addEventListener('click', function() {
+            window.location.href = 'menu.html'; // Cambia 'menu.html' por la URL de tu vista de menú
+        });
+        document.getElementById('mesasBtn').addEventListener('click', function() {
+            console.log('Botón Mesas disponibles del día presionado'); // Mensaje de depuración
+            window.location.href = 'mesas.html';
+        });
+// Redirigir a la vista para realizar el pedido
+        document.getElementById('realizarPedidosBtn').addEventListener('click', function() {
+            window.location.href = 'realizar_pedido.html'; // Cambia 'realizar_pedido.html' por la URL de tu vista para realizar pedidos
+        });
+  // Redirigir a la vista de mesas
+  document.getElementById('btn-mesas').addEventListener('click', function() {
+            window.location.href = 'mesas.html'; // Cambia 'mesas.html' por la URL de tu vista de mesas
+        });
+
+        // Redirigir a la vista de pedidos
+        document.getElementById('btn-pedidos').addEventListener('click', function() {
+            window.location.href = 'pedidos.html'; // Cambia 'pedidos.html' por la URL de tu vista de pedidos
+        });
+
+        // Redirigir a la vista de perfil
+        document.getElementById('btn-perfil').addEventListener('click', function() {
+            window.location.href = 'perfil.html'; // Cambia 'perfil.html' por la URL de tu vista de perfil
+        });
+    </script>
 </body>
 </html>
-
-
-

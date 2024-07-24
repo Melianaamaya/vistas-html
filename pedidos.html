@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Generando sonrisas</title>
+    <title>El emperador</title>
     <style>
         body {
             background-color: #DDC5A1; /* Color de fondo marrón claro */
@@ -135,6 +135,28 @@
             background-color: #e0e0e0; /* Cambiar el color de fondo al pasar el cursor */
         }
     </style>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            document.getElementById("btn-mesas").addEventListener("click", function() {
+                window.location.href = "mesas.html"; // Cambia esta línea a la URL de tu vista de mesas
+            });
+        
+            document.querySelector(".perfil-btn").addEventListener("click", function() {
+                window.location.href = "perfil.html"; // Cambia esta línea a la URL de tu vista de perfil
+            });
+
+            document.getElementById("btn-historial").addEventListener("click", function() {
+                window.location.href = "historial.html"; // Cambia esta línea a la URL de tu vista de historial
+            });
+        
+            document.querySelectorAll(".pedido button").forEach(button => {
+                button.addEventListener("click", function() {
+                    const mesaNumber = this.textContent.split(' ')[2];
+                    window.location.href = `pedido_mesa${mesaNumber}.html`; // Cambia esta línea a la URL de tu vista de pedido de mesa
+                });
+            });
+        });
+    </script>
 </head>
 <body>
     <header>
@@ -181,5 +203,6 @@
             <button>Pedido Mesa 3</button>
         </div>
     </div>
+
 </body>
 </html>

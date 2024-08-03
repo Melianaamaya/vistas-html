@@ -81,7 +81,6 @@
         .navigation {
             display: flex;
             align-items: center;
-            justify-content: space-between;
             margin-right: 20px;
             margin-top: 10px;
             margin-left: 15px; /* Mueve el botón de volver atrás a la derecha */
@@ -121,14 +120,22 @@
             align-items: center; /* Centrar horizontalmente los elementos */
         }
 
+        .pedido {
+            width: 100%; /* Asegurar que la contenedora del botón ocupe todo el ancho disponible */
+        }
+
         .pedido button {
             font-size: 24px; /* Aumentar el tamaño de la fuente */
-            padding: 20px 80px; /* Aumentar el padding para hacer los botones más grandes */
-            margin: 15px 0; /* Agregar espacio vertical entre cada botón */
+            width: 100%; /* Ancho del 100% del contenedor */
+            max-width: 300px; /* Ancho máximo de los botones */
+            height: 70px; /* Alto fijo para todos los botones */
+            margin: 20px auto; /* Agregar espacio vertical entre cada botón y centrarlo horizontalmente */
             background-color: #b9977e; /* Color de fondo de los botones */
             border: 2px solid #000; /* Borde de los botones */
             border-radius: 10px; /* Bordes redondeados para los botones */
             cursor: pointer; /* Cambiar el cursor al pasar sobre los botones */
+            display: block; /* Asegurar que el botón sea un bloque */
+            text-align: center; /* Centrar el texto dentro del botón */
         }
 
         .pedido button:hover {
@@ -140,32 +147,19 @@
             document.getElementById("btn-mesas").addEventListener("click", function() {
                 window.location.href = "mesas.html"; // Cambia esta línea a la URL de tu vista de mesas
             });
-        
+            
+            // Redirigir a la vista de pedidos
+            document.getElementById('btn-pedidos').addEventListener('click', function() {
+            window.location.href = 'pedidos.html'; // Cambia 'pedidos.html' por la URL de tu vista de pedidos
+            });
+
             document.querySelector(".perfil-btn").addEventListener("click", function() {
                 window.location.href = "perfil.html"; // Cambia esta línea a la URL de tu vista de perfil
             });
 
-            document.getElementById("btn-historial").addEventListener("click", function() {
-                window.location.href = "historial.html"; // Cambia esta línea a la URL de tu vista de historial
-            });
-        
-            // Simulación de pedidos para cada mesa
-            const pedidos = {
-                mesa1: "",
-                mesa2: "",
-                mesa5: "",
-                mesa3: ""
-            };
-
-            // Agregar eventos de ratón para mostrar el pedido al pasar sobre el botón
             document.querySelectorAll(".pedido button").forEach(button => {
-                const mesaNumber = button.textContent.split(' ')[1];
-                button.addEventListener("mouseenter", function() {
-                    const pedido = pedidos[`mesa${mesaNumber}`] || "Sin pedido";
-                    button.title = `Pedido: ${pedido}`;
-                });
-
                 button.addEventListener("click", function() {
+                    const mesaNumber = this.textContent.split(' ')[2];
                     window.location.href = `pedido_mesa${mesaNumber}.html`; // Cambia esta línea a la URL de tu vista de pedido de mesa
                 });
             });
@@ -177,7 +171,7 @@
         <div class="header row">
             <!-- Margen superior izquierdo: Logo y nombre de la página -->
             <div class="header-left">
-                <img src="imagenes/generando sonrisas.png" alt="Logo de la página">
+                <img src="imagenes\generando sonrisas.png" alt="Logo de la página">
                 <h1>Generando sonrisas</h1>
             </div>
             <!-- Margen superior derecho: Botones de Mesas y Pedidos, Perfil y Logo de Usuario -->
@@ -191,30 +185,27 @@
             </div>
         </div>
     </header>
-    <!-- Botón de Volver Atrás y Botón de Historial de Pedidos -->
+    <!-- Botón de Volver Atrás -->
     <div class="navigation row">
         <a href="#" onclick="history.back();">
             <img src="imagenes/flecha.png" alt="Volver Atrás" style="width: 25px; height: auto;">
         </a>
-        <div class="historial">
-            <button id="btn-historial">Historial de Pedidos</button>
-        </div>
     </div>
-    <!-- Título de Pedidos Pendientes -->
-    <h2 class="row">Pedidos pendientes</h2>
+    <!-- Título de Realizar pedidos -->
+    <h2 class="row">Realizar pedidos</h2>
     <!-- Botones de Pedidos de Mesa -->
     <div class="pedidos-container row">
         <div class="pedido">
-            <button>Mesa 1</button>
+            <button>Desayunos/Meriendas</button>
         </div>
         <div class="pedido">
-            <button>Mesa 2</button>
+            <button>Almuerzo</button>
         </div>
         <div class="pedido">
-            <button>Mesa 5</button>
+            <button>Cena</button>
         </div>
         <div class="pedido">
-            <button>Mesa 3</button>
+            <button>Bebidas</button>
         </div>
     </div>
 
